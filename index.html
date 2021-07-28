@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html>
+
+<script src='https://d3js.org/d3.v5.min.js'></script>
+<style> circle, rect {fill: steel blue;} </style>
 <body>
 <h1>Hello World</h1>
 <p>I'm hosted for Paul Bromen.</p>
 
-<h1>Javascript supports arrays with numerical indices but with arbitrarily typed elements</h1>
+<h1> supports arrays with numerical indices but with arbitrarily typed elements</h1>
 
-  <script src='https://d3js.org/d3.v5.min.js'>
-  <style> circle, rect {fill: none; stroke: black;} </style>
+
   <body>
-  <svg width=100 height=100>
-  <g id='first'>
-    <circle cx=30 cy=30 r=10></circle>
-    <rect x=60 y=20 width=20 height=20></rect>
-  </g>
-  <g id='second'>
-    <circle cx=30 cy=70 r=10></circle>
-    <rect x=60 y=60 width=20 height=20></rect>
-  </g>
+  <svg class='chart' width ="200" height="200">
   </svg>
 
-  d3.csv("/cars2017.csv", function(data) {
-      for (var i = 0; i < data.length; i++) {
-        //  console.log(data[i].Name);
-          console.log(data);
-      }
-  });
-  console.log("Checking");
+<script>
+  var data = d3.csv("/cars2017.csv");
+d3.select('.chart')
+     .selectAll("rect")
+     .data(data)
+     .enter()append('rect')       .attr("width", 19)
+     .attr("height",function (d) {return 10*d;})
+     .attr("x", fucntion(d,i) {return 20*1;})
+     .attr("y", function(d) {return 420 - 10 * d;;});
+
   </script>
 
 
