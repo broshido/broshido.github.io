@@ -2,7 +2,7 @@
 <html>
 <body>
 <h1>Hello World</h1>
-<p>I'm hosted with for Paul Bromen.</p>
+<p>I'm hosted for Paul Bromen.</p>
 
 <h1>Javascript supports arrays with numerical indices but with arbitrarily typed elements</h1>
 
@@ -19,6 +19,16 @@
     <rect x=60 y=60 width=20 height=20></rect>
   </g>
   </svg>
+  <script>
+  d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
+      for (var i = 0; i < data.length; i++) {
+          console.log(data[i].Name);
+          console.log(data[i].Age);
+      }
+  });
+  </script>
+
+
   <script>
 
 </body>
