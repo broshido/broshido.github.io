@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<script src='https://d3js.org/d3.v5.min.js'></script>
+<style> circle, rect {fill: steel blue;} </style>
+<body>
+<h1>Hello World</h1>
+<p>I'm hosted for Paul Bromen.</p>
+
+<h1>Javascript supports arrays with numerical indices but with arbitrarily typed elements</h1>
+
+
+  <body>
+  <svg class='chart' width ="200" height="200">
+  </svg>
+
+<script>
+  var data = d3.csv("/cars2017.csv");
+d3.select('.chart')
+     .selectAll("rect")
+     .data(data)
+     .enter()append('rect')       .attr("width", 19)
+     .attr("height",function (d) {return 10*d;})
+     .attr("x", fucntion(d,i) {return 20*1;})
+     .attr("y", function(d) {return 420 - 10 * d;;});
+
+  </script>
+
+
+
+
+</body>
+</html>
