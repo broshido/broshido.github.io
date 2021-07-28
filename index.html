@@ -7,7 +7,7 @@
 <h1>Hello World</h1>
 <p>I'm hosted for Paul Bromen.</p>
 
-<h1>  arrays with numerical indices but with arbitrarily typed elements</h1>
+<h1><a href="https://www.w3schools.com"> example </a> </h1>
 <p><span id = "data"></span></p>
 
 
@@ -18,7 +18,7 @@
 <script>
   var data = d3.csv("/cars2017.csv");
   //var data = [4, 8, 15,16,23,42];
-  document.getElementById("data").innerHTML = data;
+  document.getElementById("data").innerHTML = data.Make;
 d3.select(".chart")
      .selectAll("rect")
      .data(data)
