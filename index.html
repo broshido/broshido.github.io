@@ -15,11 +15,14 @@
   </svg>
 
 <script>
-  var data = d3.csv("/cars2017.csv");
-d3.select('.chart')
+  //var data = d3.csv("/cars2017.csv");
+  var data = [4, 8, 15,16,23,42];
+  document.getElementById("data").innerhtml = data;
+d3.select(".chart")
      .selectAll("rect")
      .data(data)
-     .enter()append('rect')       .attr("width", 19)
+     .enter().append('rect')
+     .attr("width", 19)
      .attr("height",function (d) {return 10*d;})
      .attr("x", fucntion(d,i) {return 20*1;})
      .attr("y", function(d) {return 420 - 10 * d;;});
