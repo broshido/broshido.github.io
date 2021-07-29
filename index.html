@@ -23,17 +23,17 @@ Here is the example text that explains the story that I am trying to say.<br>
   </svg>
 
 <script>
-  var data = d3.csv("cars2017.csv");
+  //var data = d3.csv("cars2017.csv");
   //var data = [4, 8, 15,16,23,42];
-  document.getElementById("data").innerHTML = data.Make;
-d3.select(".chart")
-     .selectAll("rect")
-     .data(data)
-     .enter().append('rect')
-     .attr("width", 19)
-     .attr("height",function (d) {return 10*d;})
-     .attr("x", function(d,i) {return 20*i;})
-     .attr("y", function(d) {return 420 - 10 * d;;});
+//  document.getElementById("data").innerHTML = data.Make;
+//d3.select(".chart")
+  //   .selectAll("rect")
+    // .data(data)
+     //.enter().append('rect')
+     //.attr("width", 19)
+     //.attr("height",function (d) {return 10*d;})
+     //.attr("x", function(d,i) {return 20*i;})
+     //.attr("y", function(d) {return 420 - 10 * d;;});
 
   </script>
 
