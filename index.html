@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<script src='https://d3js.org/d3.v4.min.js'></script>
+<script src='https://d3js.org/d3.v5.min.js'></script>
 <style> circle, rect {fill: steel blue;} </style>
 <body>
 <h1>Breaking the Link</h1>
@@ -26,33 +26,17 @@ Here is the example text that explains the story that I am trying to say.<br>
 
 <script>
   //var data = d3.csv("cars2017.csv");
-var data = [{x: 0, y: 20}, {x: 150, y: 150}, {x: 300, y: 100}, {x: 450, y: 20}, {x: 600, y: 130}]
-var svg = d3.select("#line").append("svg").attr("width", 800).attr("height", 200)
 
-
-
-  // prepare a helper function
-var lineFunc = d3.line()
-  .x(function(d) { return d.x })
-  .y(function(d) { return d.y })
-
-  svg.append('path')
-    .attr('d', lineFunc(data))
-    .attr('stroke', 'black')
-    .attr('fill', 'none');
-
-
-
-  //var data = [4, 8, 15,16,23,42];
-//  document.getElementById("data").innerHTML = data.Make;
-//d3.select(".chart")
-  //   .selectAll("rect")
-    // .data(data)
-     //.enter().append('rect')
-     //.attr("width", 19)
-     //.attr("height",function (d) {return 10*d;})
-     //.attr("x", function(d,i) {return 20*i;})
-     //.attr("y", function(d) {return 420 - 10 * d;;});
+  var data = [4, 8, 15,16,23,42];
+document.getElementById("data").innerHTML = data.Make;
+d3.select(".chart")
+   .selectAll("rect")
+   .data(data)
+     .enter().append('rect')
+     .attr("width", 19)
+    .attr("height",function (d) {return 10*d;})
+     .attr("x", function(d,i) {return 20*i;})
+     .attr("y", function(d) {return 420 - 10 * d;;});
 
   </script>
      <div id="line"></div>
