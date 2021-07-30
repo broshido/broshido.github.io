@@ -37,7 +37,7 @@
 
     // When reading the csv, I must format variables:
     function(d){
-      return { date : d3.timeParse("%Y-%m-%d")(d.date), newCases : d.newCases }
+      return { date2 : d3.timeParse("%Y-%m-%d")(d.date2), newCases2 : d.newCases2 }
     },
 
     // Now I can use this dataset:
@@ -45,7 +45,7 @@
 
       // Add X axis --> it is a date format
       var x = d3.scaleTime()
-        .domain(d3.extent(data, function(d) { return d.date; }))
+        .domain(d3.extent(data, function(d) { return d.date2; }))
         .range([ 0, width ]);
       svg.append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -53,7 +53,7 @@
 
       // Add Y axis
       var y = d3.scaleLinear()
-        .domain([0, d3.max(data, function(d) { return +d.newCases; })])
+        .domain([0, d3.max(data, function(d) { return +d.newCases2; })])
         .range([ height, 0 ]);
       svg.append("g")
         .call(d3.axisLeft(y));
@@ -65,8 +65,8 @@
         .attr("stroke", "steelblue")
         .attr("stroke-width", 1.5)
         .attr("d", d3.line()
-          .x(function(d) { return x(d.date) })
-          .y(function(d) { return y(d.newCases) })
+          .x(function(d) { return x(d.date2) })
+          .y(function(d) { return y(d.newCases2) })
           )
 
   })
