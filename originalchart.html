@@ -4,21 +4,17 @@
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
 
-
-
-
-
 <body>
 <h1>Breaking the Link</h1>
 <h2>Comparing Covid Cases in UK before and after mass vaccination</h2>
 <p>By Paul Bromen</p>
 <hr>
-<h1><div><a href="example.html" color = "red">Before</a> &nbsp;&nbsp;<a href="example.html"> After</a> &nbsp;&nbsp;<a href="example.html">Conclusion</a> </div> </h1>
 <p><span id = "data">line chart test</span></p>
 
   <body>
 
 <div id="my_dataviz"></div>
+<div id="my_dataviz2"></div>
   <script>
 
   // set the dimensions and margins of the graph
@@ -36,7 +32,7 @@
             "translate(" + margin.left + "," + margin.top + ")");
 
   //Read the data
-  d3.csv("ukCaseData.csv",
+  d3.csv("https://broshido.github.io/ukCaseData.csv",
 
     // When reading the csv, I must format variables:
     function(d){
@@ -76,6 +72,7 @@
 
   </script>
 
+<h1><div><a href="example.html" color = "red">Before</a> &nbsp;&nbsp;<a href="example.html"> After</a> &nbsp;&nbsp;<a href="example.html">Conclusion</a> </div> </h1>
 
 
 
