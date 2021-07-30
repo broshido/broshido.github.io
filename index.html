@@ -19,12 +19,16 @@ Here is the example text that explains the story that I am trying to say.<br>
 <p><span id = "data">CHART GOES HERE</span></p>
 
   <body>
+    <svg>
+     </svg>
 
 
 <script>
   //var data = d3.csv("cars2017.csv");
 var data = [{x: 0, y: 20}, {x: 150, y: 150}, {x: 300, y: 100}, {x: 450, y: 20}, {x: 600, y: 130}]
   var svg = d3.select("#line").append("svg").attr("width", 800).attr("height", 200)
+
+
 
   // prepare a helper function
 var lineFunc = d3.line()
