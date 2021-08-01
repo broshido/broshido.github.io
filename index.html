@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
-<!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+
+
 <style> .chart rect {fill: steelblue;} </style>
 <body>
 <h1>Breaking the Link</h1>
@@ -30,12 +32,12 @@
 
 
 <script>
-// set the dimensions and margins of the graph
+
 var margin = {top: 30, right: 30, bottom: 30, left: 60},
     width = 480 - margin.left - margin.right,
     height = 420 - margin.top - margin.bottom;
 
-// append the svg object to the body of the page
+
 var svg = d3.select("#chart")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -44,18 +46,18 @@ var svg = d3.select("#chart")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-//Read the data
+
 d3.csv("https://broshido.github.io/ukCaseData.csv",
 
-  // When reading the csv, I must format variables:
+
   function(d){
     return { date2 : d3.timeParse("%Y-%m-%d")(d.date2), caseToDeath2 : d.caseToDeath2 }
   },
 
-  // Now I can use this dataset:
+
   function(data) {
 
-    // Add X axis --> it is a date format
+
     var x = d3.scaleTime()
       .domain(d3.extent(data, function(d) { return d.date2; }))
       .range([ 0, width ]);
@@ -63,14 +65,14 @@ d3.csv("https://broshido.github.io/ukCaseData.csv",
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
 
-    // Add Y axis
+
     var y = d3.scaleLinear()
       .domain([0, .045])
       .range([ height, 0 ]);
     svg.append("g")
       .call(d3.axisLeft(y));
 
-    // Add the line
+
     svg.append("path")
       .datum(data)
       .attr("fill", "none")
@@ -92,6 +94,34 @@ svg.append("text")
         .text("Deaths Resulting From Confirmed Cases - Past Peak");
 
 </script>
+<script>
+
+// Features of the annotation
+const annotations = [
+  {
+    note: {
+      label: "Here is the annotation label",
+      title: "Jan 24th - The highest cases to deaths at .043"
+    },
+    x: 100,
+    y: 100,
+    dy: 100,
+    dx: 100
+  }
+]
+
+
+const makeAnnotations = d3.annotation()
+  .annotations(annotations)
+d3.select("#chart")
+  .append("g")
+  .call(makeAnnotations)
+
+
+</script>
+
+
+
 
 
 <h3><div>
