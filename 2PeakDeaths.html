@@ -9,21 +9,19 @@
 <h2>Comparing Covid Cases in UK before and after mass vaccination</h2>
 <p>By Paul Bromen</p>
 <hr>
-<p><span id = "data">Now it's your turn to explore the data. Use the links below to analyze the data and charts.</span></p>
-<p><span> This chart shows cases during the 1st peak.</span></p>
+<p><span id = "data">Now it's your turn to analyze the data. Use the links below to explore the data.</span></p>
 
-  <body>
 
 <div id="visual"></div>
 
   <script>
 
-  // set the dimensions and margins of the graph
-  var margin = {top: 10, right: 30, bottom: 30, left: 60},
-      width = 460 - margin.left - margin.right,
-      height = 400 - margin.top - margin.bottom;
 
-  // append the svg object to the body of the page
+  var margin = {top: 30, right: 30, bottom: 30, left: 60},
+      width = 480 - margin.left - margin.right,
+      height = 420 - margin.top - margin.bottom;
+
+
   var svg = d3.select("#visual")
     .append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -70,6 +68,14 @@
           )
 
   })
+
+  svg.append("text")
+          .attr("x", (width / 2))
+          .attr("y", 0 - (margin.top / 2))
+          .attr("text-anchor", "middle")
+          .style("font-size", "16px")
+          .style("text-decoration", "underline")
+          .text("Confirmed Deaths - Current Surge ");
 
   </script>
 
