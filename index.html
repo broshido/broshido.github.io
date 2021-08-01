@@ -43,6 +43,7 @@ var svg = d3.select("#chart")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
+  .attr("id","graph")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
@@ -100,22 +101,40 @@ svg.append("text")
 const annotations = [
   {
     note: {
-      label: "Here is the annotation label",
-      title: "Jan 24th - The highest cases to deaths at .043"
+      label: "Least deaths per case",
+      title: "Dec 29 = .01"
     },
-    x: 100,
-    y: 100,
-    dy: 100,
-    dx: 100
+    x: 143,
+    y: 280,
+    dy: 10,
+    dx: 10
   }
 ]
 
+const annotations2 = [
+  {
+    note: {
+      label: "Most deaths per case",
+      title: "Jan 27 = .042"
+    },
+    x: 370,
+    y: 25,
+    dy: 2,
+    dx: -10
+  }
+]
 
 const makeAnnotations = d3.annotation()
   .annotations(annotations)
-d3.select("#chart")
+d3.select("#graph")
   .append("g")
   .call(makeAnnotations)
+
+  const makeAnnotations2 = d3.annotation()
+    .annotations(annotations2)
+  d3.select("#graph")
+    .append("g")
+    .call(makeAnnotations2)
 
 
 </script>

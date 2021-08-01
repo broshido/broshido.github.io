@@ -3,6 +3,7 @@
 
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 <style> .chart rect {fill: steelblue;} </style>
 <body>
 <h1>Breaking the Link</h1>
@@ -38,6 +39,7 @@ var svg = d3.select("#chart")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
+  .attr("id","graph")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
@@ -91,6 +93,47 @@ svg.append("text")
 
 </script>
 
+<script>
+const annotations = [
+  {
+    note: {
+      label: "Least deaths per case",
+      title: "Jun 29 -> .0003"
+    },
+    x: 287,
+    y: 355,
+    dy: -30,
+    dx: 10
+  }
+]
+
+const annotations2 = [
+  {
+    note: {
+      label: "Most deaths per case",
+      title: "May 26 -> .0041"
+    },
+    x: 42,
+    y: 320,
+    dy: -20,
+    dx: 10
+  }
+]
+
+const makeAnnotations = d3.annotation()
+  .annotations(annotations)
+d3.select("#graph")
+  .append("g")
+  .call(makeAnnotations)
+
+  const makeAnnotations2 = d3.annotation()
+    .annotations(annotations2)
+  d3.select("#graph")
+    .append("g")
+    .call(makeAnnotations2)
+
+
+</script>
 
 <h3><div>  <a href="1PeakCases.html"> Next-> </a>&nbsp;&nbsp;
  </div> </h3>
