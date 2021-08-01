@@ -10,8 +10,8 @@
 <h2>Comparing Covid Cases in UK before and after mass vaccination</h2>
 <p>By Paul Bromen</p>
 <hr>
-<p><span id = "data">Now it's your turn to explore the data. Use the links below to analyze the data and charts.</span></p>
-<p><span> This chart shows cases during the 1st peak.</span></p>
+<p><span id = "data">Now it's your turn to analyze the data. Use the links below to explore the data.</span></p>
+
 
 
 
@@ -19,12 +19,12 @@
 
   <script>
 
-  // set the dimensions and margins of the graph
-  var margin = {top: 10, right: 30, bottom: 30, left: 60},
-      width = 460 - margin.left - margin.right,
-      height = 400 - margin.top - margin.bottom;
 
-  // append the svg object to the body of the page
+  var margin = {top: 30, right: 30, bottom: 30, left: 60},
+      width = 480 - margin.left - margin.right,
+      height = 420 - margin.top - margin.bottom;
+
+
   var svg = d3.select("#visual")
     .append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -33,18 +33,18 @@
       .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
 
-  //Read the data
+
   d3.csv("https://broshido.github.io/ukCaseData.csv",
 
-    // When reading the csv, I must format variables:
+
     function(d){
       return { date2 : d3.timeParse("%Y-%m-%d")(d.date2), resultDeath2 : d.resultDeath2 }
     },
 
-    // Now I can use this dataset:
+
     function(data) {
 
-      // Add X axis --> it is a date format
+
       var x = d3.scaleTime()
         .domain(d3.extent(data, function(d) { return d.date2; }))
         .range([ 0, width ]);
@@ -52,14 +52,13 @@
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
 
-      // Add Y axis
       var y = d3.scaleLinear()
         .domain([0, d3.max(data, function(d) { return +d.resultDeath2; })])
         .range([ height, 0 ]);
       svg.append("g")
         .call(d3.axisLeft(y));
 
-      // Add the line
+
       svg.append("path")
         .datum(data)
         .attr("fill", "none")
@@ -71,6 +70,14 @@
           )
 
   })
+
+  svg.append("text")
+          .attr("x", (width / 2))
+          .attr("y", 0 - (margin.top / 2))
+          .attr("text-anchor", "middle")
+          .style("font-size", "16px")
+          .style("text-decoration", "underline")
+          .text("Confirmed Deaths - Past Peak ");
 
   </script>
 
