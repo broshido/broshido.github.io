@@ -6,11 +6,11 @@
 
 <body>
 <h1>Breaking the Link</h1>
-<h2>Comparing Covid Cases in UK before and after mass vaccination</h2>
+<h3>Comparing Covid Cases in UK before and after mass vaccination</h3>
 <p>By Paul Bromen</p>
 <hr>
-<p><span id = "data">Now it's your turn to explore the data. Use the links below to analyze the data and charts.</span></p>
-<p><span> This chart shows cases during the 1st peak.</span></p>
+<p><span id = "data">Now it's your turn to explore the data. Use the links below to explore the data.</span></p>
+
 
 
 
@@ -19,9 +19,9 @@
   <script>
 
   // set the dimensions and margins of the graph
-  var margin = {top: 10, right: 30, bottom: 30, left: 60},
-      width = 460 - margin.left - margin.right,
-      height = 400 - margin.top - margin.bottom;
+  var margin = {top: 30, right: 30, bottom: 30, left: 60},
+      width = 480 - margin.left - margin.right,
+      height = 520 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
   var svg = d3.select("#visual")
@@ -70,6 +70,14 @@
           )
 
   })
+
+  svg.append("text")
+          .attr("x", (width / 2))
+          .attr("y", 0 - (margin.top / 2))
+          .attr("text-anchor", "middle")
+          .style("font-size", "16px")
+          .style("text-decoration", "underline")
+          .text("Confirmed Cases - Past Peak ");
 
   </script>
 
