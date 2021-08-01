@@ -10,12 +10,12 @@
 <p>By Paul Bromen</p>
 <hr>
 
-<h3>A Grim Connection</h3>
+<h3> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;A Grim Connection</h3>
 
 <p>
   During the peak surge of Covid in the United Kingdom, each confirmed case of <br>
-   covid resulted in between roughly .045 and .01 deaths. It was clear that as <br>
-    cases increased exponentially they would cause a catastrophic loss of life. <br>
+   covid resulted in between roughly .045 and .01 deaths. It was clear that as cases <br>
+     increased exponentially they would cause a catastrophic loss of life. <br> <br>
    Now that cases are exploding again should we be concerned?
 
 
@@ -26,7 +26,7 @@
 
 <h4><span id = "title">Deaths Resulting From Confirmed Cases</span></h4>
 <div id="my_dataviz"></div>
-
+<div id="chart"></div>
 
 
 <script>
@@ -36,7 +36,7 @@ var margin = {top: 10, right: 30, bottom: 30, left: 60},
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
+var svg = d3.select("#chart")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -87,6 +87,6 @@ d3.csv("https://broshido.github.io/ukCaseData.csv",
 
 
 <h3><div>
-  <a href="2peak.html"> Next -></a></div></h3>
+  <a href="2peak.html"> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Next -></a></div></h3>
 </body>
 </html>
