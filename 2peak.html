@@ -17,8 +17,8 @@ Here is the example text that explains the story that I am trying to say.<br>
 </p>
 
 
-<p><span id = "data">CHART GOES HERE</span></p>
-<div id="my_dataviz"></div>
+
+<div id="chart"></div>
 
 
 
@@ -29,7 +29,7 @@ var margin = {top: 10, right: 30, bottom: 30, left: 60},
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
+var svg = d3.select("#chart")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -75,6 +75,15 @@ d3.csv("https://broshido.github.io/ukCaseData.csv",
         )
 
 })
+
+svg.append("text")
+        .attr("x", (width / 2))
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")
+        .style("font-size", "16px")
+        .style("text-decoration", "underline")
+        .text("Deaths Resulting From Confirmed Cases - Current Peak");
+
 
 </script>
 
